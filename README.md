@@ -6,12 +6,13 @@ Psychologische und organisatorische Leitplanken für Claude Code, unabhängig vo
 
 Claude soll den Dev nicht ablenken und ihm keine Überlegungen abnehmen. Der Dev führt und denkt, Claude liefert zu: kompakt, ohne Nebenbefunde, ohne ungefragte Vorschläge, Entscheidungen bleiben beim Dev.
 
-## Installation (macOS)
+## Installation (macOS, Linux, Windows)
 
 ```sh
-claude plugin marketplace add ~/dev/claude-plugins/mind_the_trap
-claude plugin install mind_the_trap@mind_the_trap
+claude plugin install mind_the_trap --marketplace coding-with-snakes/claude-plugin-mind-to-trap
 ```
+
+Das geht ab Claude Code v2.1.292. Bei älteren Versionen: `claude plugin marketplace add coding-with-snakes/claude-plugin-mind-to-trap`, dann `claude plugin install mind_the_trap@mind_the_trap`.
 
 Das Plugin bringt den Output Style „Fokus“ (automatisch aktiv) und zwei Hooks mit. Danach neue Claude-Session starten.
 
@@ -40,6 +41,19 @@ Prather et al. (2024), *The Widening Gap: The Benefits and Harms of Generative A
 | Achievement, Progression | nicht gelöst | Nichts bremst nach gescheiterten Fix-Versuchen oder erkennt, wenn der Dev den Anschluss verliert |
 
 Location und Task-Wechsel löst das Task-System [`goal`](../goal).
+
+## GitHub Copilot CLI
+
+Nur die Regeln sind übertragbar:
+
+1. Repo klonen: `git clone https://github.com/coding-with-snakes/claude-plugin-mind-to-trap.git mind_the_trap`
+2. Den Text von [`output-styles/fokus.md`](output-styles/fokus.md) ohne das Frontmatter (die Zeilen zwischen den beiden `---`) und ohne Abschnitt 6 „Werkzeuge“ (er nennt Claude-Werkzeuge) nach `~/.copilot/copilot-instructions.md` (Windows: `%USERPROFILE%\.copilot\copilot-instructions.md`, vermutet) kopieren ([Custom Instructions](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/add-custom-instructions)).
+3. Neue Copilot-Session starten.
+
+Die Hooks lassen sich nicht übertragen ([Hooks-Referenz](https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-hooks-reference)):
+
+- `rueckmeldung.rb` braucht Kontext beim nächsten Prompt; Copilot verwirft die Ausgabe von `userPromptSubmitted`.
+- `stop_check.rb` braucht Claudes letzte Antwort; Copilots `agentStop` liefert nur `transcriptPath` und `stopReason`.
 
 ## Tests
 
