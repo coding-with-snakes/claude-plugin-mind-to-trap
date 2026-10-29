@@ -1,0 +1,18 @@
+{
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          { "type": "command", "command": "/usr/bin/env ruby --disable-gems \"${CLAUDE_PLUGIN_ROOT}/ruby/hooks/rueckmeldung.rb\"" }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          { "type": "command", "command": "/usr/bin/env ruby --disable-gems \"${CLAUDE_PLUGIN_ROOT}/ruby/hooks/stop_check.rb\"" }
+        ]
+      }
+    ]
+  }
+}

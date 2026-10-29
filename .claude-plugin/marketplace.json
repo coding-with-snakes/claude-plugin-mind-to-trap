@@ -1,0 +1,12 @@
+{
+  "name": "mind_the_trap",
+  "description": "Psychologische und organisatorische Leitplanken für Claude Code",
+  "owner": { "name": "nsc" },
+  "plugins": [
+    {
+      "name": "mind_the_trap",
+      "source": "./",
+      "description": "Psychologische und organisatorische Leitplanken: kompakte Antworten, wenig Lärm, Entscheidungen beim Dev"
+    }
+  ]
+}
