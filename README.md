@@ -20,8 +20,9 @@ Der Style überschreibt einen eigenen `outputStyle` des Users, solange das Plugi
 
 ## Was Claude befolgt
 
-- Kern zuerst, keine Floskeln, höchstens ein neuer Punkt pro Antwort; weitere über `1 einzeln · 2 Liste · 3 Todo`.
-- Keine Angebote und keine Vorgaben zum nächsten Schritt; ein Stop-Hook meldet sie beim nächsten Prompt.
+- Kern zuerst, keine Floskeln, höchstens ein neuer Punkt pro Antwort; mehrere Punkte nur als Auswahl: Einzeln anzeigen, Alle anzeigen, Als Todo-Task.
+- Bei jedem Prompt erinnert ein Hook an die wichtigsten Regeln.
+- Keine Angebote und keine Vorgaben zum nächsten Schritt; ein Stop-Hook meldet sie beim nächsten Prompt. Listen ab 4 Punkten und das alte Auswahlformat blockiert er, Claude formuliert die Antwort neu.
 - Offene Fragen bekommen eine präzisierende Rückfrage; Antwort erst nach „mach trotzdem“.
 - Höchstens eine Entscheidung pro Antwort; pauschale Freigaben („mach das“) erst nach bestätigter Liste.
 - Aussagen mit Beleg oder „(vermutet)“.
